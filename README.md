@@ -64,7 +64,7 @@ docker container exec -ti "CONTAINER ID" OU "Names" bash
 <br>
 docker container exec -ti 049a785ef131 cat /usr/share/nginx/html/index.html
 <br>
-<h1>Docker Images em execução versão </h1><br>
+<h1>Docker Images baixadas</h1><br>
 docker images
 <br>
 
