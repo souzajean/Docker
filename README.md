@@ -3,6 +3,7 @@
 <h1>Instalando o Docker</h1><br>
 curl -fsSl https://get.docker.com | bash
 <br>
+<h1>sudo usermod -aG docker jean</h1><br>
 <h1>Docker Versão</h1><br>
 docker version
 <br>
