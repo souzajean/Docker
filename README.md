@@ -67,6 +67,6 @@ docker container exec -ti 049a785ef131 cat /usr/share/nginx/html/index.html
 <br>
 <h1>Docker Images baixadas</h1><br>
 docker images
-<br>
+<br> 
 <br>
 
