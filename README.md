@@ -70,13 +70,12 @@ docker images
 <br>
 <h1>Docker Volumes</h1>
 <br>
-<p>docker create volume [volumeName]</p>
-<p>docker volume ls</p>
-<p>docker volume inspect [volumeName]</p>
-<p>docker volume tm [volumeName]</p>
-<p>docker volume prune</p>
+<p>docker create volume [volumeName]<br>
+docker volume ls<br>
+docker volume inspect [volumeName]<br>
+docker volume tm [volumeName]<br>
+docker volume prune</p>
 <br>
-
 
 <h1>Docker Compose</h1>
 <p>docker compose buid<br>
