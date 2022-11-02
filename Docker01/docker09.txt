@@ -1,0 +1,11 @@
+docker compose buid
+docker compose start
+docker compose stop
+docker compose up -d
+docker compose ps
+docker compose rm
+docker compose down
+docker compose logs
+docker compose exec [container] bash
+
+
