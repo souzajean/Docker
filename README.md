@@ -88,4 +88,11 @@ docker compose down<br>
 docker compose logs<br>
 docker compose exec [container] bash</p>
 
+<h1>Docker Compose Novos Comandos</h1>
+<p>docker compose --project-name teste1 up -d<br>
+docker compose -p teste2 up -d<br>
+doxker compose ls<br>
+docker compose cp [containerID]:[SRC_PATH] [DEST_PATH]<br>
+docker compose cp [SRC_PATH]:[containerID] : [DEST_PATH]</p>
+
 
