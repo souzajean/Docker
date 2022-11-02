@@ -1,0 +1,25 @@
+docker container run -it ubuntu /bin/bash
+apt-get update
+apt-get install curl -y
+curl https://wwww.google.com.br
+
+
+docker container ls
+docker container ls -a
+
+-------------------------------------------------
+
+docker container run nginx 
+docker container run -d nginx
+docker container ls
+docker container ls -a
+
+docker container run -d -p 8080:80 nginx
+docker container ls
+docker container stop IDCONTAINER
+docker container rm IDCONTAINER
+docker container rm -f IDCONTAINER
+
+
+-------------------------------------------------
+
