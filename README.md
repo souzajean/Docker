@@ -67,6 +67,13 @@ docker container exec -ti 049a785ef131 cat /usr/share/nginx/html/index.html
 <br>
 <h1>Docker Images baixadas</h1><br>
 docker images
-<br> 
 <br>
+<h1>Docker Volumes</h1>
+<br>
+<p>docker create volume [volumeName]</p>
+<p>docker volume ls</p>
+<p>docker volume inspect [volumeName]</p>
+<p>docker volume tm [volumeName]</p>
+<p>docker volume prune</p>
+
 
