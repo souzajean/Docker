@@ -1,0 +1,19 @@
+Criando um Dockerfile
+
+FROM ubuntu
+RUN apt-get update && apt-get install curl --yes
+
+
+docker image build -t ubuntu-curl .
+docker image ls
+
+
+FROM ubuntu
+RUN apt-get update && apt-get install curl --yes && apt-get install vim --yes
+
+docker image ls
+docker prune
+docker image inspect bd13e30d05e3
+
+docker image history bd13e30d05e3
+
