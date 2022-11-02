@@ -75,5 +75,18 @@ docker images
 <p>docker volume inspect [volumeName]</p>
 <p>docker volume tm [volumeName]</p>
 <p>docker volume prune</p>
+<br>
+
+
+<h1>Docker Compose</h1>
+<p>docker compose buid<br>
+docker compose start<br>
+docker compose stop<br>
+docker compose up -d<br>
+docker compose ps<br>
+docker compose rm<br>
+docker compose down<br>
+docker compose logs<br>
+docker compose exec [container] bash</p>
 
 
