@@ -27,5 +27,21 @@ services:
    docker compose up -d 
    docker compose -p teste2 up -d
 
+
+
+   # Exemplos
+   
+   # build serviços
+   docker compose build
+
+   # build, (re)criar, start,anexar container para um service
+   docker compose up
+
+   # listar serviços
+   docker compose ps
+
+   #bring down what was created by up
+   docker compose down
+
       
 
