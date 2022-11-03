@@ -1,0 +1,21 @@
+# Criar nosso Dockerfile
+FROM node
+WORKDIR /app
+COPY package*.json ./
+RUN npm install 
+COPY . .
+EXPOSE 8080
+CMD ["node", "server.js"]
+
+
+# Build 
+docker build -t conversao-temperatura .
+
+# Listar imagem
+docker image ls
+
+# Criar Container
+docker container run -d -p 8080:8080 conversao-temperatura
+
+# Listar Container
+docker container ls
