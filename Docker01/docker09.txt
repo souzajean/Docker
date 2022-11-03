@@ -1,0 +1,47 @@
+docker compose buid
+docker compose start
+docker compose stop
+docker compose up -d
+docker compose ps
+docker compose rm
+docker compose down
+docker compose logs
+docker compose exec [container] bash
+
+docker compose --project-name teste1 up -d
+docker compose -p teste2 up -d
+doxker compose ls
+docker compose cp [containerID]:[SRC_PATH] [DEST_PATH]
+docker compose cp [SRC_PATH]:[containerID] : [DEST_PATH]
+
+Projeto
+services:
+  web:
+    build: .
+    command: python app.py
+    ports:
+      - 5000:80
+ redis:
+   image: "redis:alpine"
+
+   docker compose up -d 
+   docker compose -p teste2 up -d
+
+
+
+   # Exemplos
+   
+   # build serviços
+   docker compose build
+
+   # build, (re)criar, start,anexar container para um service
+   docker compose up
+
+   # listar serviços
+   docker compose ps
+
+   #bring down what was created by up
+   docker compose down
+
+      
+

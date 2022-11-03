@@ -1,0 +1,42 @@
+# Add a Doclerfile file
+
+FROM nginx:alpine
+COPY index.html /usr/share/nginx/html
+
+# Build the image
+docker build -t hello-world:v1
+
+# Criar instancia da imagem
+docker container run -d -p 8080:80 --name hello hello-world:v1
+
+# Listar images
+docker images -a
+
+# Listar de containers running
+docker ps ou docker container ls -a
+
+# Display da página usando curl
+curl localhost:8080
+ou use seu browser. https://localhost:8080
+
+# Stop Container
+docker stop hello
+
+# Listar de containers running
+docker ps ou docker container ls -a
+
+# Remover a instance da memory
+docker rm hello
+
+
+# Confirme que o container não esta running
+docker ps
+
+# É se a image esta presente?
+docker images
+
+# Delete a image
+docker rmi hello-world:v1
+
+
+

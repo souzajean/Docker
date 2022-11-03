@@ -1,0 +1,28 @@
+# Desta vez, containerizaremos um .Aplicativo NET Core.
+
+# Gere o projeto
+# O projeto já está localizado na pasta do laboratório. Foi criado usando este comando:
+
+dotnet new webapp
+
+#Construa a imagem
+#O Dockerfile já foi criado.
+
+#No terminal, digite os seguintes comandos:
+
+docker build -t dotnetwebapp:latest .
+
+
+#Execute uma instância
+docker run -d -p 8080:5289 --name webapp dotnetwebapp:latest
+
+#Liste os contêineres em execução
+docker ps -a
+
+#Exibir usando o aplicativo
+#Aponte seu navegador para http://localhost:8080
+
+#Limpar
+docker stop webapp
+docker rm webapp
+docker rmi dotnetwebapp:latest

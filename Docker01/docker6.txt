@@ -1,0 +1,57 @@
+# Multi stage builds
+
+FROM mcr.microsoft.com/dotnet/core/aspnet:3.0 AS base
+WORKDIR /app
+EXPOSE 80
+EXPOSE 443
+
+FROM mcr.microsoft.com/dotnet/core/sdk:3.0 AS build
+WORKDIR /src
+COPY ["DotNetMvcApp.csproj", "./"]
+RUN dotnet restore DotNetMvcApp.csproj"
+COPY . .
+WORKDIR "/src/."
+RUN dotnet build "DotNetMvcApp.csproj" -c Release -o /app/build
+
+FROM base AS final
+WORKDIR /app
+COPY --from=publish /app/publish .
+ENTRYPOINT ["dotnet", "DotNetMvcApp.dll"]
+
+
+
+#Build &Run
+
+# build
+docker build -t dotnetmvcapp:latest .
+
+# run
+docker run -d -p 8080:80 dotnetmvcapp:latest
+
+# display
+curl localhost:8080
+
+
+
+### JAVA
+FROM openjdk:8-jdk as build
+
+ARG VERSION
+ARG JAR_PATH
+
+VOLUME /tmp
+WORKDIR /
+ADD . .
+RUN ./gradlew --stacktrace clean test build
+RUN mv /$JAR_PATH /app.jar
+
+#package stage
+FROM openjdk:8-jre-alpine
+WORKDIR /# Copy only the built jar and nothing else
+COPY --from=build /app.jar /
+ENV VERSION=$VERSION
+ENV JAVA_OPTS -Dspring.profiles.active-production
+
+EXPOSE 5000
+
+ENTRYPOINT ["sh","-o","java -jar -Dspring.profile.active=production /app.jar"]

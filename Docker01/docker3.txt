@@ -1,0 +1,8 @@
+docker container run -it ubuntu /bin/bash
+apt-get update
+apt-get install curl -y
+
+docker container ls -a
+docker commit 1193b203381e nginx-curl-commit
+docker image ls
+docker container run -it nginx-curl-commit /bin/bash
