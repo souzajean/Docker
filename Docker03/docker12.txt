@@ -1,0 +1,11 @@
+# Login docker hub
+docker login -u <username> -p <password>
+
+# Tag imageb previsão build 
+docker tag my_image souzajean/myimage:latest
+
+# Push image
+docker push souzajean/myimage:latest
+
+# Pull image
+docker pull souzajean/myimage:latest

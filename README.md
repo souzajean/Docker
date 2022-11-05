@@ -94,5 +94,16 @@ docker compose -p teste2 up -d<br>
 doxker compose ls<br>
 docker compose cp [containerID]:[SRC_PATH] [DEST_PATH]<br>
 docker compose cp [SRC_PATH]:[containerID] : [DEST_PATH]</p>
+<br>
+<h1>Login docker hub</h1>
+<p>docker login -u username -p password</p>
 
+<h1>Tag imageb previsão build</h1> 
+<p>docker tag my_image souzajean/myimage:latest</p>
+
+<h1>Push image</h1>
+<p>docker push souzajean/myimage:latest</p>
+
+<h1>Pull image</h1>
+<p>docker pull souzajean/myimage:latest</p>
 <br>
