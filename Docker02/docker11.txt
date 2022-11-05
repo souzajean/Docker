@@ -1,0 +1,151 @@
+# Resource Limits
+
+services:
+  redis:
+    image: redis:alpine
+    deploy:
+      resources:
+        cpus: '0.50'
+        memory: 2
+       reservations:
+         cpus: '0.25'
+         memory: 20M 
+
+
+services:
+  web:
+    image: nginx:alpine
+    environment:
+      - DEBUG=1
+      - FOO=BAR
+
+docker compose up -d -e DEBUG=0     
+
+# set um environmentvariable
+export POSTGRES_VERSION=14.3
+
+#powershell
+env:POSTGRES_VERSION= "14.3"
+
+services:
+  db:
+    image: "postgres:${POSTGRES_VERSION}"
+
+
+
+
+Docker Compose Networking
+
+services:
+  web:
+    image: nginx:alpine
+    ports:
+      - "8080:80"
+   db:
+     image: postgres
+     ports:
+       - "5432"
+
+
+
+# Networking
+
+services:
+  proxy:
+    image: nginx
+    networks:
+      - frontend
+   app:
+     image: myapp
+     networks:
+       - frontend
+       - backend
+    db:
+      image: postgres
+      networks:
+        - backend
+networks:
+  frontend:
+  backend:
+
+
+
+# Dependence
+
+services:
+  app:
+    image: myapp
+    depends_on:
+      - db
+   db:
+     image: postgres
+     networks:
+       - back-tier   
+
+# Volumes - Nameds
+
+services:
+  app:
+    image: myapp
+    depends_on:
+      - db
+   db:
+     image: postgres
+     Volumes:
+       - db-data:/etc/data
+      networks:
+        - back-tier
+Volumes:
+  db data:
+
+
+services:
+  app:
+    image: myapp
+    depends_on:
+      - db
+   db:
+     image: postgres
+     Volumes:
+       - ./db:/etc/data
+       networks:
+         - back-tier                 
+
+
+# Restart Policy
+services:
+  app:
+    image: myapp
+    restart: always
+    depends_on:
+      - db
+   db:
+     image: postgres
+     restart: always   
+
+
+
+# Build the app
+docker compose build
+
+# Run the app
+docker compose up -d
+
+
+# This will take a while. When the app will run, launch the app in your browser http://localhost:3000
+
+# List the containers
+docker compose ps
+
+# Look at the backend container logs
+docker compose logs -f backend
+
+#Refresh the frontend page a few times, the logs should display each hit
+
+
+# Stop the app
+docker compose down
+
+# List the containers
+# Was the app really removed?
+docker compose ps
